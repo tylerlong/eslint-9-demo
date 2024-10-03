@@ -1,20 +1,23 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import jsEslint from "@eslint/js";
+import tsEslint from "typescript-eslint";
+import reactEslint from "eslint-plugin-react";
+import prettierEslint from "eslint-plugin-prettier/recommended";
 
-
-export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+const config = [
+  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
     settings: {
       react: {
-        version: "detect"
-      }
+        version: "detect",
+      },
     },
-    languageOptions: { globals: globals.browser }
+    languageOptions: { globals: globals.browser },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  jsEslint.configs.recommended,
+  ...tsEslint.configs.recommended,
+  reactEslint.configs.flat.recommended,
+  prettierEslint,
 ];
+
+export default config;
