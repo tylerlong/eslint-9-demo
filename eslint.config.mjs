@@ -1,3 +1,1 @@
-import config from 'eslint-config-tyler/eslint.config.mjs';
-
-export default config;
+export { default } from 'eslint-config-tyler/eslint.config.mjs';
